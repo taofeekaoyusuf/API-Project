@@ -22,5 +22,4 @@ jobs:
         with:
           name: postman-results
           path: postman-results.json
-      - name: Print environment variables
-        run: cat environment.json
+
