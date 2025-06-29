@@ -12,6 +12,16 @@ jobs:
           curl -o- "https://dl-cli.pstmn.io/install/osx_64.sh" | sh
       - name: Login to Postman CLI
         run: postman login --with-api-key ${{ secrets.POSTMAN_API_KEY }}
-      - name: Run API tests
+      - name: Run API Tests with Postman Cloud Collection
         run: |
-          postman collection run "45750581-83d47c21-34b1-4698-abb0-0c9465a75371"
+          postman collection run "45750581-83d47c21-34b1-4698-abb0-0c9465a75371" \
+            --environment "${{ secret.ENVIRONMENT_KEY }}" \
+            --reporters cli,json \
+            --reporter-json-export "postman-results.json"
+      - name: Upload Test Results
+        uses: actions/upload-artifact@v4
+        with:
+          name: postman-results
+          path: postman-results.json
+      - name: Print environment variables
+        run: cat environment.json
