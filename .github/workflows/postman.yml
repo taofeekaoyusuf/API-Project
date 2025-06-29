@@ -15,7 +15,7 @@ jobs:
       - name: Run API Tests with Postman Cloud Collection
         run: |
           postman collection run "45750581-83d47c21-34b1-4698-abb0-0c9465a75371" \
-            --environment "https://www.postman.com/taofeekabiodunolasunkanmiyusuf/api-test-automation/collection/ci72dxl/assignment-5?action=share&source=copy-link&creator=45750581" \
+            --environment "https://www.postman.com/taofeekabiodunolasunkanmiyusuf/api-test-automation/collection/ci72dxl/assignment-5?action=share&source=copy-link&creator=45750581-83d47c21-34b1-4698-abb0-0c9465a75371" \
             --reporters cli,json \
             --reporter-json-export "postman-results.json"
       - name: Upload Test Results
